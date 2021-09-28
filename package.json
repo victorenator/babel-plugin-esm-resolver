@@ -9,9 +9,14 @@
         "eslint": "^7.32.0",
         "mocha": "^9.1.2"
     },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/victorenator/babel-plugin-esm-resolver.git"
+    },
     "files": [
         "index.js"
     ],
+    "license": "MIT",
     "engines": {
         "node": "16"
     }
