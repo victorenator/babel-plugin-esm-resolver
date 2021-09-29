@@ -3,13 +3,17 @@ import {dirname, relative} from 'node:path';
 
 const TYPES = Symbol();
 
+function resolve(sourceModule, importModule) {
+    const require = createRequire(sourceModule);
+    const path = relative(dirname(sourceModule), require.resolve(importModule));
+    return path[0] === '.'? path: `./${path}`;
+}
+
 function transformImportExport(nodePath, state) {
     const source = nodePath.get('source');
     if (source.node && isAlias(source.node.value)) {
         try {
-            const require = createRequire(state.filename);
-            const path = relative(dirname(state.filename), require.resolve(source.node.value));
-            source.replaceWith(state[TYPES].stringLiteral(path))
+            source.replaceWith(state[TYPES].stringLiteral(resolve(state.filename, source.node.value)))
 
         } catch {
             // ignore

@@ -1,6 +1,6 @@
 {
     "name": "@victorenator/babel-plugin-esm-resolver",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "ESM Resolver for Babel",
     "type": "module",
     "module": "index.js",
@@ -18,6 +18,6 @@
     ],
     "license": "MIT",
     "engines": {
-        "node": "16"
+        "node": ">=14"
     }
 }
