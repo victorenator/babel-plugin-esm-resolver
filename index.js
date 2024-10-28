@@ -9,7 +9,12 @@ function resolve(sourceModule, importModule) {
     return path[0] === '.'? path: `./${path}`;
 }
 
+/**
+ * @param {import('@babel/core').NodePath} nodePath 
+ * @param {*} state 
+ */
 function transformImportExport(nodePath, state) {
+    /** @type {import('@babel/core').NodePath<import('@babel/core').types.ImportOrExportDeclaration>} */
     const source = nodePath.get('source');
     if (source.node && isAlias(source.node.value)) {
         try {
