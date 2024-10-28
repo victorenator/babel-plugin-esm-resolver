@@ -16,7 +16,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/victorenator/babel-plugin-esm-resolver.git"
+        "url": "git+https://github.com/victorenator/babel-plugin-esm-resolver.git"
     },
     "files": [
         "index.js"
